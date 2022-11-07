@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Fredoka One', cursive;
+}
+
+body{
+    min-height: 100vh;
+    background-color: rgb(71, 150, 228);
+    display: flex;
+    align-items: center;
+    justify-content:center ;
+}
+
+.main{
+    background-color: #fff;
+    height: 190px;
+    width: 350px;
+    border-radius: 20px;
+    position: relative;
+    box-shadow:12px 12px 20px -12px rgba(0,0,0,.35);
+    transition: 0.5s;
+
+}
+
+.main:hover{
+    height: 450px;
+
+}
+
+.img-Memoria{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -50px;
+    width: 170px;
+    height: 150px;
+    background-image: url(/Img/img-cerebro.png);
+    background-size: cover;
+}
+
+.formulario{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 115px;
+    
+}
+
+.formulario-header{
+   font-size: 12px;
+   margin: 15px;
+   font-size: 18.5px;
+}
+
+.formulario-login{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+    padding: 25px;
+    padding-right: 35px;
+    display: none;
+    transition: 0.5s;
+}
+
+.formulario-login input{
+    position: absolute;
+    height: 40px;
+    width: 300px;
+    padding: 5px;
+    left: 30px;
+    top: 200px;
+    font-size: 2;
+}
+
+.formulario-login button{
+    position: absolute;
+    top: 260px;
+    height: 40px;
+    width: 200px;
+    cursor: pointer;
+    border: 1px solid rgb(51, 50, 50);
+    border-radius: 5px;
+    background-color: #db55aa;
+    font-size: 24px;
+
+    
+}
+
+.main:hover .formulario-login{
+    display: flex;
+}
+
+.formulario-login button:disabled{
+    background-color: #eee;
+    color: #aaa;
+    border-radius: 5px;
+    cursor: auto;
+}
+
+
+
