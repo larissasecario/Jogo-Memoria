@@ -9,7 +9,8 @@
 body{
     max-height: 100vh;
     background-image: url(/Img/fundo-tela.jpg);
-    background-size: cover;
+    background-size: 210vh;
+    background-repeat: no-repeat;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -96,4 +97,60 @@ header{
     opacity: 0.8;
     filter: saturate(0);
   
+}
+
+.fundo-vitoria{
+    position: absolute;
+    width: 100%;
+    height: 884px;
+    background-color: rgba(117, 117, 117, 0.76);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.vitoria{
+    position: absolute;
+    background-size: contain;
+    height: 500px;
+    width: 500px;
+    border: 5px solid black;
+    border-radius: 20px;
+    background-color: rgb(71, 150, 228);
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    ;
+}
+
+
+.vitoria img{
+    width: 250px;
+    margin: 5px;
+    margin-right: 25px;
+}
+
+.vitoria h2{
+    font-size: 40px;
+}
+
+.btn-jogar-novamente{
+    margin: 10px;
+    width: 200px;
+    height: 50px;
+    text-decoration: none;
+    border: 2px solid black;
+    border-radius: 5px;
+    
+}
+
+
+.btn-jogar-novamente:hover{
+    cursor: pointer;
+    border: 1px solid rgb(51, 50, 50);
+    background-color: #db55aa;
+    width: 220px;
+
 }

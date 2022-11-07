@@ -1,4 +1,5 @@
 const telaJogo = document.querySelector('.tela-jogo');
+const btnJogarNovamente = document.querySelector('.btn-jogar-novamente');
 const nomeJogador = document.querySelector('#nome-jogador');
 const cartasPersonagens = ['carta1','carta2','carta3','carta4',
                             'carta5','carta6','carta7','carta8',
@@ -14,8 +15,7 @@ window.onload = function (){
     adicionarCartas();
     
 }
-
-
+btnJogarNovamente.addEventListener('click', reiniciarJogo);
 
 
 function cronometro(){
@@ -60,7 +60,6 @@ function cronometro(){
  
  
  }
-
  function adicionarCartas(){
     const duplicaArray = [...cartasPersonagens, ...cartasPersonagens];
     const desordenarArray = duplicaArray.sort(()=>{
@@ -71,14 +70,12 @@ function cronometro(){
        telaJogo.appendChild(carta);
     });
 }
-
 function criarHtml(elemento, classe){
     const elementoHtml = document.createElement(elemento)
     elementoHtml.className = classe;
     return elementoHtml;
 
 }
-
 function criarCard(nomeCarta){
    const cartaDiv = criarHtml('div', 'card');
    const cartaFrenteDiv = criarHtml('div', 'face frente');
@@ -94,7 +91,6 @@ function criarCard(nomeCarta){
     return cartaDiv; 
 
 }
-
 function revelarCarta(event){
     const divPai = event.target.parentNode;
     if(divPai.className != 'virar-Carta'){
@@ -111,39 +107,50 @@ function revelarCarta(event){
     verificarIgualdade();     
 
 }
-
-
 function verificarIgualdade(){
-   
-    const primeiraVerificacao = primeiraCarta.getAttribute('data-nomeCarta');
-    const segundaVerificacao = segundaCarta.getAttribute('data-nomeCarta'); 
-    
-    if(primeiraVerificacao == segundaVerificacao){
-        primeiraCarta.firstChild.classList.add('acerto-carta');
-        segundaCarta.firstChild.classList.add('acerto-carta');
-        primeiraCarta = '';
-        segundaCarta = '';
-        verificarFimGame();
+    try {
+        const primeiraVerificacao = primeiraCarta.getAttribute('data-nomeCarta');
+        const segundaVerificacao = segundaCarta.getAttribute('data-nomeCarta'); 
+       
 
-    }else{
-        setTimeout(()=>{
-            primeiraCarta.classList.remove('virar-Carta');
-            segundaCarta.classList.remove('virar-Carta');
+
+        if(primeiraVerificacao == segundaVerificacao){
+            primeiraCarta.firstChild.classList.add('acerto-carta');
+            segundaCarta.firstChild.classList.add('acerto-carta');
             primeiraCarta = '';
             segundaCarta = '';
-        }, 500)   
+            verificarFimGame();
+    
+        }else{
+            setTimeout(()=>{
+                primeiraCarta.classList.remove('virar-Carta');
+                segundaCarta.classList.remove('virar-Carta');
+                primeiraCarta = '';
+                segundaCarta = '';
+            }, 500)   
+        }
+        
+    } catch (error) {
+        console.log(TypeError)
     }
+    
 }
-
 function verificarFimGame(){
     const cartasAcertadas = document.querySelectorAll('.acerto-carta');
     if(cartasAcertadas.length == 24){
         clearInterval(this.tempo);
+        const telaVitoria = document.querySelector('.fundo-vitoria');
+        const tempoJogado = document.querySelector('#tempo-fim-jogo');
+
+            telaVitoria.style.display = 'flex';
+            tempoJogado.innerHTML = tempoJogo.innerHTML;
 
     }
 }
+function reiniciarJogo(){
+    window.location.reload();
 
-
+}
 
 
 
