@@ -1,0 +1,54 @@
+@media only screen and (max-width:960px){
+    header{
+        font-size: 15px;
+    }
+    .tela-jogo{
+        margin-top: 10px;
+        max-width: 800px;
+    }
+    .card{
+        width: 110px;
+        height: 110px;
+    }
+}
+
+@media only screen and (max-width:650px){
+    header{
+        font-size: 12px;
+    }
+    .tela-jogo{
+        top: 12%;
+        max-width: 650px;
+    }
+    .card{
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media only screen and (max-width:480px){
+    .tela-jogo{
+        top: 12%;
+        max-width: 500px;
+    }
+    header{
+        font-size: 10px;
+    }
+    .card{
+        width: 75px;
+        height: 75px;
+        margin-bottom: 4px;
+        
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
