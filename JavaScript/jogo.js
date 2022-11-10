@@ -93,40 +93,48 @@ function criarCard(nomeCarta){
 }
 function revelarCarta(event){
     const divPai = event.target.parentNode;
-    if(divPai.className != 'virar-Carta'){
+    if(divPai.className != 'virar-Carta' && divPai.className != 'tela-jogo'){
         if(primeiraCarta == ''){
-            divPai.classList.add('virar-Carta');
-            primeiraCarta = divPai;
-        
+                    divPai.classList.add('virar-Carta');
+                    primeiraCarta = divPai;
+                
         }else{
-            divPai.classList.add('virar-Carta');
-            segundaCarta = divPai;
+                    divPai.classList.add('virar-Carta');
+                    segundaCarta = divPai;
         }
     }
+    
+    if(primeiraCarta !== segundaCarta){
+            verificarIgualdade();     
 
-    verificarIgualdade();     
+    }
 
 }
 function verificarIgualdade(){
     try {
         const primeiraVerificacao = primeiraCarta.getAttribute('data-nomeCarta');
         const segundaVerificacao = segundaCarta.getAttribute('data-nomeCarta'); 
-       
-
+        const cartaFilhoPrimeira = primeiraCarta.firstChild;
+        const cartaFilhoSegundo = segundaCarta.firstChild;
 
         if(primeiraVerificacao == segundaVerificacao){
-            primeiraCarta.firstChild.classList.add('acerto-carta');
-            segundaCarta.firstChild.classList.add('acerto-carta');
+            cartaFilhoPrimeira.classList.add('acerto-carta');
+            cartaFilhoSegundo.classList.add('acerto-carta');
             primeiraCarta = '';
             segundaCarta = '';
             verificarFimGame();
-    
+            
         }else{
             setTimeout(()=>{
+            if(cartaFilhoPrimeira.classList.length != "3"){
                 primeiraCarta.classList.remove('virar-Carta');
+            }
+            if(cartaFilhoSegundo.classList.length != '3'){   
                 segundaCarta.classList.remove('virar-Carta');
+            }
                 primeiraCarta = '';
                 segundaCarta = '';
+
             }, 500)   
         }
         
